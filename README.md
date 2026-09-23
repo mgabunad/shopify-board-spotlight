@@ -1,54 +1,88 @@
-# Shopify Board Spotlight Section
+# Shopify Custom Sections
 
-A custom Online Store 2.0 section written in Liquid for **Frostline Boards**, a snowboard demo store on a Shopify Partner development store.
+Two custom Online Store 2.0 sections written in Liquid, each built for a different Shopify Partner development store. The second section is adapted from the first for a different niche, with new features added.
 
-It features one product on the homepage with a size selector, live price updates, a sold-out state, and spec ratings the merchant can edit in the theme editor without touching code.
+| Section | Store | Theme | Niche |
+|---|---|---|---|
+| [Board spotlight](#1-board-spotlight--frostline-boards) | Frostline Boards | Dawn-based OS 2.0 theme | Snowboards |
+| [Product spotlight](#2-product-spotlight--bloom-and-bare) | Bloom and Bare | Horizon | Skincare and beauty |
 
-![Desktop view in the theme editor](desktop-editor.png)
+Password-protected live previews of both stores are available on request.
 
-## Features
+---
 
-- **Product picker** so the merchant chooses which board to feature
-- **Variant buttons** (for example, board sizes) that update the price instantly when clicked
-- **Sold-out handling**: unavailable variants are crossed out and disabled
-- **Add to cart form** using Shopify's native `{% form 'product' %}` tag
-- **Spec rating blocks** (Flex, Park, Powder, and so on) with a 1–5 rating, up to 6 blocks
-- **Merchant settings** for heading, label, button text, accent color, and top/bottom padding
-- **Responsive layout**: two columns on desktop, stacked on mobile
-- **Accessible**: `aria-pressed` on variant buttons, screen-reader text for ratings, visible keyboard focus
-- **Theme editor support**: JavaScript re-initializes on `shopify:section:load`
+## 1. Board spotlight — Frostline Boards
 
-## Screenshots
+File: [`board-spotlight.liquid`](board-spotlight.liquid)
+
+Features one snowboard on the homepage with a size selector, live price updates, a sold-out state, and spec ratings the merchant edits in the theme editor.
+
+![Board spotlight in the theme editor](desktop-editor.png)
+
+**Features**
+
+- Product picker so the merchant chooses which board to feature
+- Variant buttons (board sizes) that update the price instantly
+- Sold-out variants crossed out and disabled
+- Add to cart form using Shopify's native `{% form 'product' %}` tag
+- Spec rating blocks (Flex, Park, Powder) with a 1–5 rating shown as bars
+- Settings for heading, label, button text, accent color, and padding
+- Responsive: two columns on desktop, stacked on mobile
 
 | Mobile | Settings |
 |---|---|
-| ![Mobile view](mobile-view.png) | ![Settings with preview](settings-with-preview.png) |
+| ![Board spotlight mobile](mobile-view.png) | ![Board spotlight settings](settings-with-preview.png) |
 
-### Code
+![Board spotlight code](code.png)
+![Board spotlight schema](code-schema.png)
 
-![Liquid markup](code.png)
-![Schema settings](code-schema.png)
+---
+
+## 2. Product spotlight — Bloom and Bare
+
+File: [`product-spotlight.liquid`](product-spotlight.liquid)
+
+Adapted from Board spotlight for a skincare store on Shopify's Horizon theme, with sale pricing and more layout control.
+
+![Product spotlight with sale badge](bloom-desktop-view.png)
+
+**New in this version**
+
+- **Sale badge and compare-at price** that appear only when the selected variant is on sale, and update when the shopper switches sizes
+- **Image position setting** (left or right on desktop)
+- **Benefit rating blocks** (Hydration, Glow, Gentleness) shown as dots
+- Rounded, softer styling and "Add to bag" wording to suit a beauty brand
+- Section-scoped Custom CSS used to tune the heading size within Horizon
+
+| Mobile | Settings |
+|---|---|
+| ![Product spotlight mobile](bloom-mobile-view.png) | ![Product spotlight settings](bloom-settings.png) |
+
+![Product spotlight code](bloom-code.png)
+
+---
+
+## Shared technical details
+
+- Scoped JavaScript per section instance, re-initialized on `shopify:section:load` so it keeps working in the theme editor
+- Accessibility: `aria-pressed` on variant buttons, screen-reader text for ratings, visible keyboard focus
+- Styles in `{% stylesheet %}`, with merchant settings passed in through CSS custom properties
+- Schema presets so each section appears ready to use under **Add section**
 
 ## How to install
 
 1. In Shopify admin, go to **Online Store → Themes**.
 2. On your theme, click **⋯ → Edit code**.
-3. In the `sections` folder, create a new file named `board-spotlight.liquid`.
-4. Paste in the contents of [`board-spotlight.liquid`](board-spotlight.liquid) and click **Save**.
-5. Open **Customize**, click **Add section**, and choose **Board spotlight**.
-6. Pick a product and adjust the settings and spec blocks.
+3. In the `sections` folder, create a new file with the same name as the section file.
+4. Paste in its contents and click **Save**.
+5. Open **Customize**, click **Add section**, and choose **Board spotlight** or **Product spotlight**.
+6. Pick a product and adjust the settings and rating blocks.
 
 Works with Online Store 2.0 themes (themes using JSON templates).
 
 ## Built with
 
-- Liquid (Shopify templating)
-- HTML, CSS (custom properties, grid, flexbox)
-- Vanilla JavaScript
-
-## Notes
-
-This was built and tested on a Shopify Partner development store with sample products. A password-protected live preview is available on request.
+Liquid · HTML · CSS (custom properties, grid, flexbox) · Vanilla JavaScript
 
 ## Author
 
