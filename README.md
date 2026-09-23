@@ -4,7 +4,7 @@ A custom Online Store 2.0 section written in Liquid for **Frostline Boards**, a 
 
 It features one product on the homepage with a size selector, live price updates, a sold-out state, and spec ratings the merchant can edit in the theme editor without touching code.
 
-![Desktop view in the theme editor](screenshots/desktop-editor.png)
+![Desktop view in the theme editor](desktop-editor.png)
 
 ## Features
 
@@ -22,12 +22,12 @@ It features one product on the homepage with a size selector, live price updates
 
 | Mobile | Settings |
 |---|---|
-| ![Mobile view](screenshots/mobile-view.png) | ![Settings with preview](screenshots/settings-with-preview.png) |
+| ![Mobile view](mobile-view.png) | ![Settings with preview](settings-with-preview.png) |
 
 ### Code
 
-![Liquid markup](screenshots/code.png)
-![Schema settings](screenshots/code-schema.png)
+![Liquid markup](code.png)
+![Schema settings](code-schema.png)
 
 ## How to install
 
